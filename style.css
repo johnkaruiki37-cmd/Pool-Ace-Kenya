@@ -528,3 +528,74 @@ footer a:hover {
         padding: 60px 0;
     }
 }
+/* ==========================================================================
+   TikTok Media Section & Triple Gallery
+   ========================================================================== */
+
+.media-section {
+    background-color: #11161d;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px auto;
+    max-width: 1100px; /* Expands nicely to fit 3 items side-by-side */
+    justify-items: center;
+}
+
+.video-container {
+    background-color: #0b0f14;
+    max-width: 340px;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 
+                0 0 15px rgba(212, 175, 55, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.video-container:hover {
+    transform: translateY(-5px);
+    border-color: rgba(212, 175, 55, 0.4);
+}
+
+.tiktok-embed-frame {
+    width: 100%;
+    height: 580px;
+    border: none;
+    background-color: #0b0f14;
+    display: block;
+}
+
+.video-label {
+    text-align: center;
+    background-color: #0b0f14;
+    color: #f3e0b5;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.media-cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.media-btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.media-btn-group .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+}
