@@ -1,0 +1,530 @@
+/* ==========================================================================
+   Pool Ace Premium Luxury Theme (Black, Gold & Deep Slate Blue)
+   ========================================================================== */
+
+/* Base Resets & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    color: #e0e6ed;
+    background-color: #11161d; /* Deep slate matte background */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 90px 0;
+}
+
+/* Luxury Contrast Section Backgrounds */
+.bg-light {
+    background-color: #171f2a; /* Slightly lighter deep blue-gray for panel definition */
+}
+
+/* Premium Gold Text Gradient Hack */
+.gold-text {
+    background: linear-gradient(135deg, #f3e0b5 0%, #d4af37 50%, #aa7c11 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+/* Section Header Styling */
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 36px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #f4e3be 0%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-header .line {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    margin: 15px auto 0;
+}
+
+/* Header & Navigation */
+header {
+    background-color: #0b0f14; /* Solid luxury black header */
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #ffffff 0%, #f3e0b5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo span {
+    background: linear-gradient(135deg, #f3e0b5 0%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 2px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #a0aec0;
+    margin-left: 25px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #d4af37;
+}
+
+/* Elegant Nav Button Call To Action */
+nav .nav-btn {
+    background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+    color: #0b0f14 !important;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+nav .nav-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* 1. Hero Section (Gradient overlay matches the outer glow of your image) */
+.hero {
+    background: linear-gradient(135deg, rgba(11, 15, 20, 0.95) 30%, rgba(23, 42, 58, 0.85) 100%), 
+                url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    text-align: center;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.hero-content h1 {
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, #ffffff 40%, #f3e0b5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+    font-size: 20px;
+    max-width: 750px;
+    margin: 0 auto 35px;
+    color: #a0aec0;
+    font-weight: 400;
+}
+
+/* Master Button Concept styling after the graphic asset */
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #f3e0b5 0%, #d4af37 50%, #aa7c11 100%);
+    color: #0b0f14;
+    padding: 16px 36px;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.25);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.45);
+}
+
+/* 2. About Section */
+.about-text {
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 17px;
+    color: #b2c0cc;
+}
+
+.about-text p {
+    margin-bottom: 25px;
+}
+
+/* 3. Services Section Grid Cards */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: #0b0f14;
+    padding: 40px 30px;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 1px solid rgba(212, 175, 55, 0.08);
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.service-card:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    transform: translateY(-5px);
+}
+
+.service-card .icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 2px 8px rgba(212,175,55,0.3));
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    color: #f3e0b5;
+    font-size: 20px;
+}
+
+.service-card ul {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.service-card li {
+    margin-bottom: 10px;
+    color: #b2c0cc;
+}
+
+.service-card strong {
+    color: #ffffff;
+}
+
+.small-text {
+    font-size: 13px;
+    color: #718096;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 15px;
+}
+
+/* 4. Coverage Section Areas */
+.center-text {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 35px;
+    color: #b2c0cc;
+}
+
+.coverage-list {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.area-tag {
+    background-color: #171f2a;
+    color: #f3e0b5;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.note-text {
+    text-align: center;
+    margin-top: 35px;
+    color: #718096;
+}
+
+/* 5. Pricing Framework Steps */
+.how-headline {
+    text-align: center;
+    margin: 50px 0 25px;
+    color: #f3e0b5;
+    font-size: 22px;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.step {
+    background: #0b0f14;
+    padding: 30px 20px;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.03);
+}
+
+.step-num {
+    background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+    color: #0b0f14;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-weight: 700;
+}
+
+.step p {
+    color: #b2c0cc;
+    font-size: 15px;
+}
+
+.badge-text {
+    text-align: center;
+    margin-top: 40px;
+    font-weight: 700;
+    color: #d4af37;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+/* 7. Why Choose System Features */
+.features-list {
+    list-style: none;
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 18px;
+}
+
+.features-list li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+    color: #b2c0cc;
+}
+
+.check {
+    color: #d4af37;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+/* 6. Contact & Booking Layout Container */
+.booking-section {
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    background: #0b0f14;
+    padding: 50px 40px;
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    max-width: 600px;
+    width: 100%;
+}
+
+.form-container h2 {
+    color: #f3e0b5;
+    margin-bottom: 12px;
+}
+
+.form-subtitle {
+    font-size: 14px;
+    color: #a0aec0;
+    margin-bottom: 35px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #e2e8f0;
+    font-size: 14px;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 14px;
+    background-color: #171f2a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-size: 15px;
+    color: #ffffff;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group select:focus {
+    border-color: #d4af37;
+    outline: none;
+}
+
+/* Dropdown arrow fix for dark styling style consistency */
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%23d4af37'><polygon points='0,0 10,0 5,7'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+}
+
+/* Agreement Terms Matrix */
+.terms-container {
+    display: flex;
+    background: rgba(212, 175, 55, 0.06);
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    margin-bottom: 35px;
+}
+
+.terms-container input {
+    margin-right: 15px;
+    margin-top: 3px;
+    transform: scale(1.2);
+    accent-color: #d4af37; /* Modern browser checkmark override color */
+}
+
+.terms-container label {
+    font-size: 13px;
+    color: #c9b097;
+    line-height: 1.5;
+}
+
+.terms-link {
+    color: #f3e0b5;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #f3e0b5 0%, #d4af37 50%, #aa7c11 100%);
+    color: #0b0f14;
+    padding: 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    transition: all 0.2s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* 8. Footer Framework */
+footer {
+    background-color: #06080b; /* Pure void black footer finish */
+    color: #ffffff;
+    padding: 60px 0 30px;
+    text-align: center;
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+footer h3 {
+    font-size: 24px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #f3e0b5;
+}
+
+.tagline {
+    font-style: italic;
+    color: #718096;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+.footer-info {
+    margin-bottom: 12px;
+    color: #b2c0cc;
+    font-size: 15px;
+}
+
+footer a {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-line {
+    width: 100%;
+    height: 1px;
+    background: rgba(212, 175, 55, 0.1);
+    margin: 30px 0;
+}
+
+.copyright {
+    font-size: 13px;
+    color: #4a5568;
+}
+
+/* Responsive Adaptability Breakpoints */
+@media(max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+    }
+    nav a {
+        margin: 0 12px;
+    }
+    .hero-content h1 {
+        font-size: 36px;
+    }
+    .hero-content p {
+        font-size: 17px;
+    }
+    .section-padding {
+        padding: 60px 0;
+    }
+}
