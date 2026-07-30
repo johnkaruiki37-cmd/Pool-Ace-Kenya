@@ -1,58 +1,79 @@
 /* ==========================================================================
    Pool Ace Premium Luxury Theme (Black, Gold & Deep Slate Blue)
+   Cross-Platform Optimized for Android, iOS, and Windows
    ========================================================================== */
 
-/* Base Resets & Typography */
+/* 1. Base Variables & Universal Resets */
+:root {
+    --bg-dark: #0b0f14;          /* Luxury void black */
+    --bg-main: #11161d;          /* Matte slate background */
+    --bg-panel: #171f2a;         /* Deep slate contrast panel */
+    --gold-light: #f3e0b5;       /* Light champagne gold */
+    --gold-main: #d4af37;        /* Metallic gold */
+    --gold-dark: #aa7c11;        /* Deep gold shadow */
+    --text-primary: #e0e6ed;
+    --text-muted: #a0aec0;
+    --font-main: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* Prevents default gray highlight tap boxes on Android & iOS mobile devices */
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
     scroll-behavior: smooth;
+    /* Respects user font sizing settings on Android and iOS */
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
-    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-family: var(--font-main);
     line-height: 1.6;
-    color: #e0e6ed;
-    background-color: #11161d; /* Deep slate matte background */
+    color: var(--text-primary);
+    background-color: var(--bg-main);
+    /* Smooth momentum scrolling on iOS Safari */
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
 }
 
+/* Container with Safe-Area Insets for iPhone notches and curved screen edges */
 .container {
+    width: 100%;
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
 }
 
 .section-padding {
-    padding: 90px 0;
+    padding: clamp(50px, 8vw, 90px) 0;
 }
 
-/* Luxury Contrast Section Backgrounds */
 .bg-light {
-    background-color: #171f2a; /* Slightly lighter deep blue-gray for panel definition */
+    background-color: var(--bg-panel);
 }
 
-/* Premium Gold Text Gradient Hack */
+/* 2. Gold Typography Accents */
 .gold-text {
-    background: linear-gradient(135deg, #f3e0b5 0%, #d4af37 50%, #aa7c11 100%);
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-main) 50%, var(--gold-dark) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 700;
 }
 
-/* Section Header Styling */
 .section-header {
     text-align: center;
     margin-bottom: 50px;
 }
 
 .section-header h2 {
-    font-size: 36px;
+    font-size: clamp(26px, 4vw, 36px);
     letter-spacing: 1px;
-    background: linear-gradient(135deg, #f4e3be 0%, #d4af37 100%);
+    background: linear-gradient(135deg, #f4e3be 0%, var(--gold-main) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -60,46 +81,63 @@ body {
 .section-header .line {
     width: 80px;
     height: 3px;
-    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    background: linear-gradient(90deg, transparent, var(--gold-main), transparent);
     margin: 15px auto 0;
 }
 
-/* Header & Navigation */
+/* 3. Cross-Platform Form Controls Override */
+input, select, textarea, button {
+    font-family: inherit;
+    font-size: 16px; /* Prevents iOS Safari from auto-zooming into inputs when tapped */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 4px;
+}
+
+/* 4. Header & Navigation */
 header {
-    background-color: #0b0f14; /* Solid luxury black header */
+    background-color: var(--bg-dark);
     border-bottom: 1px solid rgba(212, 175, 55, 0.15);
     position: sticky;
     top: 0;
     z-index: 1000;
+    padding-top: env(safe-area-inset-top); /* Fits under iPhone notch area */
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .logo {
     font-size: 26px;
     font-weight: 700;
     letter-spacing: 1px;
-    background: linear-gradient(135deg, #ffffff 0%, #f3e0b5 100%);
+    background: linear-gradient(135deg, #ffffff 0%, var(--gold-light) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .logo span {
-    background: linear-gradient(135deg, #f3e0b5 0%, #d4af37 100%);
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-main) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-left: 2px;
 }
 
+nav {
+    display: flex;
+    align-items: center;
+}
+
 nav a {
     text-decoration: none;
-    color: #a0aec0;
-    margin-left: 25px;
+    color: var(--text-muted);
+    margin-left: 20px;
     font-weight: 500;
     font-size: 14px;
     letter-spacing: 0.5px;
@@ -107,13 +145,12 @@ nav a {
 }
 
 nav a:hover {
-    color: #d4af37;
+    color: var(--gold-main);
 }
 
-/* Elegant Nav Button Call To Action */
 nav .nav-btn {
-    background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
-    color: #0b0f14 !important;
+    background: linear-gradient(135deg, var(--gold-main) 0%, var(--gold-dark) 100%);
+    color: var(--bg-dark) !important;
     font-weight: 600;
     padding: 10px 20px;
     border-radius: 4px;
@@ -126,41 +163,41 @@ nav .nav-btn:hover {
     box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
 }
 
-/* 1. Hero Section (Gradient overlay matches the outer glow of your image) */
+/* 5. Hero Section */
 .hero {
     background: linear-gradient(135deg, rgba(11, 15, 20, 0.95) 30%, rgba(23, 42, 58, 0.85) 100%), 
                 url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-    height: 80vh;
+    min-height: 75vh;
     display: flex;
     align-items: center;
     color: white;
     text-align: center;
     border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    padding: 60px 0;
 }
 
 .hero-content h1 {
-    font-size: 52px;
+    font-size: clamp(30px, 5vw, 52px);
     font-weight: 700;
     letter-spacing: -0.5px;
     margin-bottom: 25px;
-    background: linear-gradient(135deg, #ffffff 40%, #f3e0b5 100%);
+    background: linear-gradient(135deg, #ffffff 40%, var(--gold-light) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .hero-content p {
-    font-size: 20px;
+    font-size: clamp(16px, 2.5vw, 20px);
     max-width: 750px;
     margin: 0 auto 35px;
-    color: #a0aec0;
+    color: var(--text-muted);
     font-weight: 400;
 }
 
-/* Master Button Concept styling after the graphic asset */
 .btn {
     display: inline-block;
-    background: linear-gradient(135deg, #f3e0b5 0%, #d4af37 50%, #aa7c11 100%);
-    color: #0b0f14;
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-main) 50%, var(--gold-dark) 100%);
+    color: var(--bg-dark);
     padding: 16px 36px;
     text-decoration: none;
     font-weight: 700;
@@ -175,12 +212,16 @@ nav .nav-btn:hover {
     box-shadow: 0 8px 25px rgba(212, 175, 55, 0.45);
 }
 
-/* 2. About Section */
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* 6. About Section */
 .about-text {
     max-width: 850px;
     margin: 0 auto;
     text-align: center;
-    font-size: 17px;
+    font-size: clamp(15px, 2vw, 17px);
     color: #b2c0cc;
 }
 
@@ -188,15 +229,15 @@ nav .nav-btn:hover {
     margin-bottom: 25px;
 }
 
-/* 3. Services Section Grid Cards */
+/* 7. Services Grid Cards */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
 .service-card {
-    background: #0b0f14;
+    background: var(--bg-dark);
     padding: 40px 30px;
     border-radius: 6px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -218,7 +259,7 @@ nav .nav-btn:hover {
 
 .service-card h3 {
     margin-bottom: 15px;
-    color: #f3e0b5;
+    color: var(--gold-light);
     font-size: 20px;
 }
 
@@ -244,10 +285,10 @@ nav .nav-btn:hover {
     padding-top: 15px;
 }
 
-/* 4. Coverage Section Areas */
+/* 8. Coverage & Pricing Sections */
 .center-text {
     text-align: center;
-    font-size: 18px;
+    font-size: clamp(15px, 2vw, 18px);
     margin-bottom: 35px;
     color: #b2c0cc;
 }
@@ -255,44 +296,30 @@ nav .nav-btn:hover {
 .coverage-list {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
 .area-tag {
-    background-color: #171f2a;
-    color: #f3e0b5;
+    background-color: var(--bg-panel);
+    color: var(--gold-light);
     border: 1px solid rgba(212, 175, 55, 0.2);
-    padding: 12px 28px;
+    padding: 12px 24px;
     border-radius: 4px;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
 
-.note-text {
-    text-align: center;
-    margin-top: 35px;
-    color: #718096;
-}
-
-/* 5. Pricing Framework Steps */
-.how-headline {
-    text-align: center;
-    margin: 50px 0 25px;
-    color: #f3e0b5;
-    font-size: 22px;
-}
-
 .steps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 25px;
     max-width: 1000px;
     margin: 0 auto;
 }
 
 .step {
-    background: #0b0f14;
+    background: var(--bg-dark);
     padding: 30px 20px;
     border-radius: 6px;
     text-align: center;
@@ -300,8 +327,8 @@ nav .nav-btn:hover {
 }
 
 .step-num {
-    background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
-    color: #0b0f14;
+    background: linear-gradient(135deg, var(--gold-main) 0%, var(--gold-dark) 100%);
+    color: var(--bg-dark);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -312,50 +339,150 @@ nav .nav-btn:hover {
     font-weight: 700;
 }
 
-.step p {
-    color: #b2c0cc;
-    font-size: 15px;
-}
-
-.badge-text {
-    text-align: center;
+/* 9. Interactive Gallery Cards */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
     margin-top: 40px;
-    font-weight: 700;
-    color: #d4af37;
-    font-size: 20px;
-    letter-spacing: 1px;
 }
 
-/* 7. Why Choose System Features */
-.features-list {
-    list-style: none;
-    max-width: 750px;
+.gallery-card {
+    background-color: var(--bg-dark);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(212, 175, 55, 0.5);
+}
+
+.img-wrapper {
+    height: 220px;
+    overflow: hidden;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-card:hover .img-wrapper img {
+    transform: scale(1.08);
+}
+
+.gallery-caption {
+    padding: 16px;
+    background: var(--bg-dark);
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.gallery-caption h4 {
+    color: var(--gold-light);
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.gallery-caption p {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+/* 10. Value Estimator Section */
+.estimator-box {
+    background: var(--bg-dark);
+    padding: clamp(20px, 4vw, 40px);
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    max-width: 800px;
     margin: 0 auto;
-    font-size: 18px;
 }
 
-.features-list li {
+.estimator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.estimate-result {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.result-amount {
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 700;
+    color: var(--gold-main);
+    margin: 8px 0;
+}
+
+/* 11. Support Center */
+.support-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.support-card {
+    background: var(--bg-dark);
+    padding: 30px 20px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.support-icon {
+    font-size: 36px;
+    color: var(--gold-main);
+    margin-bottom: 15px;
+}
+
+.support-card h3 {
+    color: var(--gold-light);
+    margin-bottom: 10px;
+}
+
+.support-card p {
+    color: var(--text-muted);
+    font-size: 14px;
     margin-bottom: 20px;
-    display: flex;
-    align-items: flex-start;
-    color: #b2c0cc;
 }
 
-.check {
-    color: #d4af37;
-    margin-right: 15px;
-    font-weight: bold;
+.support-link {
+    display: inline-block;
+    color: var(--gold-main);
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
-/* 6. Contact & Booking Layout Container */
+.support-link:hover {
+    background: var(--gold-main);
+    color: var(--bg-dark);
+}
+
+/* 12. Booking Form & Terms Agreement */
 .booking-section {
     display: flex;
     justify-content: center;
 }
 
 .form-container {
-    background: #0b0f14;
-    padding: 50px 40px;
+    background: var(--bg-dark);
+    padding: clamp(25px, 5vw, 50px) clamp(20px, 4vw, 40px);
     border-radius: 8px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.3);
     border: 1px solid rgba(212, 175, 55, 0.15);
@@ -364,13 +491,13 @@ nav .nav-btn:hover {
 }
 
 .form-container h2 {
-    color: #f3e0b5;
+    color: var(--gold-light);
     margin-bottom: 12px;
 }
 
 .form-subtitle {
     font-size: 14px;
-    color: #a0aec0;
+    color: var(--text-muted);
     margin-bottom: 35px;
 }
 
@@ -386,33 +513,32 @@ nav .nav-btn:hover {
     font-size: 14px;
 }
 
-.form-group input, .form-group select {
+.form-group input, 
+.form-group select {
     width: 100%;
     padding: 14px;
-    background-color: #171f2a;
+    background-color: var(--bg-panel);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    font-size: 15px;
     color: #ffffff;
     transition: border-color 0.3s;
 }
 
-.form-group input:focus, .form-group select:focus {
-    border-color: #d4af37;
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: var(--gold-main);
     outline: none;
 }
 
-/* Dropdown arrow fix for dark styling style consistency */
 .form-group select {
-    appearance: none;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%23d4af37'><polygon points='0,0 10,0 5,7'/></svg>");
     background-repeat: no-repeat;
     background-position: right 15px center;
+    padding-right: 35px;
 }
 
-/* Agreement Terms Matrix */
 .terms-container {
     display: flex;
+    align-items: flex-start;
     background: rgba(212, 175, 55, 0.06);
     padding: 15px;
     border-radius: 4px;
@@ -420,11 +546,12 @@ nav .nav-btn:hover {
     margin-bottom: 35px;
 }
 
-.terms-container input {
-    margin-right: 15px;
+.terms-container input[type="checkbox"] {
+    margin-right: 12px;
     margin-top: 3px;
-    transform: scale(1.2);
-    accent-color: #d4af37; /* Modern browser checkmark override color */
+    width: 18px;
+    height: 18px;
+    accent-color: var(--gold-main);
 }
 
 .terms-container label {
@@ -434,15 +561,15 @@ nav .nav-btn:hover {
 }
 
 .terms-link {
-    color: #f3e0b5;
+    color: var(--gold-light);
     font-weight: 600;
     text-decoration: underline;
 }
 
 .submit-btn {
     width: 100%;
-    background: linear-gradient(135deg, #f3e0b5 0%, #d4af37 50%, #aa7c11 100%);
-    color: #0b0f14;
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-main) 50%, var(--gold-dark) 100%);
+    color: var(--bg-dark);
     padding: 16px;
     border: none;
     border-radius: 4px;
@@ -458,11 +585,69 @@ nav .nav-btn:hover {
     box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
 }
 
-/* 8. Footer Framework */
+/* 13. Floating WhatsApp & Toast Widgets */
+.whatsapp-float {
+    position: fixed;
+    width: 56px;
+    height: 56px;
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    right: calc(20px + env(safe-area-inset-right));
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 18px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.08);
+}
+
+.notification-toast {
+    position: fixed;
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    left: calc(20px + env(safe-area-inset-left));
+    right: calc(20px + env(safe-area-inset-right));
+    max-width: 400px;
+    background: var(--bg-dark);
+    border: 1px solid var(--gold-main);
+    padding: 16px 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 10000;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.notification-toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.toast-icon {
+    font-size: 24px;
+    color: #2ed573;
+}
+
+/* 14. Footer Framework */
 footer {
-    background-color: #06080b; /* Pure void black footer finish */
+    background-color: #06080b;
     color: #ffffff;
-    padding: 60px 0 30px;
+    padding: 60px 0 calc(30px + env(safe-area-inset-bottom));
     text-align: center;
     border-top: 1px solid rgba(212, 175, 55, 0.15);
 }
@@ -471,7 +656,7 @@ footer h3 {
     font-size: 24px;
     letter-spacing: 1px;
     margin-bottom: 5px;
-    color: #f3e0b5;
+    color: var(--gold-light);
 }
 
 .tagline {
@@ -488,7 +673,7 @@ footer h3 {
 }
 
 footer a {
-    color: #d4af37;
+    color: var(--gold-main);
     text-decoration: none;
     font-weight: 600;
 }
@@ -509,23 +694,25 @@ footer a:hover {
     color: #4a5568;
 }
 
-/* Responsive Adaptability Breakpoints */
-@media(max-width: 768px) {
+/* 15. Cross-Platform Responsive Breakpoints */
+@media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
     }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
     nav a {
-        margin: 0 12px;
+        margin: 0 10px;
+        font-size: 13px;
     }
-    .hero-content h1 {
-        font-size: 36px;
-    }
-    .hero-content p {
-        font-size: 17px;
-    }
-    .section-padding {
-        padding: 60px 0;
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
 /* ==========================================================================
@@ -749,4 +936,358 @@ footer a:hover {
 .toast-content p {
     color: #a0aec0;
     font-size: 13px;
+}
+/* ==========================================================================
+   Pool Ace Premium Luxury Theme (Black, Gold & Deep Slate Blue / Light Luxury)
+   Cross-Platform Optimized (iOS, Android, Windows) with Light/Dark Support
+   ========================================================================== */
+
+/* 1. Default (Dark Theme) Variables */
+:root {
+    --bg-dark: #0b0f14;          /* Luxury void black */
+    --bg-main: #11161d;          /* Matte slate background */
+    --bg-panel: #171f2a;         /* Deep slate contrast panel */
+    --bg-card: #0b0f14;          /* Card background */
+    
+    --gold-light: #f3e0b5;       /* Light champagne gold */
+    --gold-main: #d4af37;        /* Metallic gold */
+    --gold-dark: #aa7c11;        /* Deep gold shadow */
+    
+    --text-primary: #e0e6ed;     /* Body text */
+    --text-muted: #a0aec0;       /* Subtitle text */
+    --border-gold: rgba(212, 175, 55, 0.15);
+    --border-card-hover: rgba(212, 175, 55, 0.5);
+    
+    --input-bg: #171f2a;
+    --input-text: #ffffff;
+    --input-border: rgba(255, 255, 255, 0.1);
+    
+    --font-main: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* 2. Light Theme Overrides */
+[data-theme="light"] {
+    --bg-dark: #ffffff;
+    --bg-main: #f4f6f9;
+    --bg-panel: #e8ecef;
+    --bg-card: #ffffff;
+    
+    --gold-light: #8c6d1f;       /* Darker gold for readability on white */
+    --gold-main: #b8860b;
+    --gold-dark: #7a5800;
+    
+    --text-primary: #1a202c;
+    --text-muted: #4a5568;
+    --border-gold: rgba(184, 134, 11, 0.25);
+    --border-card-hover: rgba(184, 134, 11, 0.6);
+    
+    --input-bg: #ffffff;
+    --input-text: #1a202c;
+    --input-border: #cbd5e0;
+}
+
+/* 3. Base Resets & Global Behavior */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-main);
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Container with Safe Area Padding for iOS Notches & Screen Edges */
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+}
+
+.section-padding {
+    padding: clamp(50px, 8vw, 90px) 0;
+}
+
+.bg-light {
+    background-color: var(--bg-panel);
+    transition: background-color 0.3s ease;
+}
+
+/* 4. Gold Typography Accents */
+.gold-text {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-main) 50%, var(--gold-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: clamp(26px, 4vw, 36px);
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-main) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-header .line {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold-main), transparent);
+    margin: 15px auto 0;
+}
+
+/* 5. Cross-Platform Form Overrides */
+input, select, textarea, button {
+    font-family: inherit;
+    font-size: 16px; /* Prevents auto-zoom in mobile Safari */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 4px;
+}
+
+/* 6. Header, Navigation & Theme Toggle Button */
+header {
+    background-color: var(--bg-dark);
+    border-bottom: 1px solid var(--border-gold);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding-top: env(safe-area-inset-top);
+    transition: background-color 0.3s ease;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-primary);
+}
+
+.logo span {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-main) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 2px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--gold-main);
+}
+
+nav .nav-btn {
+    background: linear-gradient(135deg, var(--gold-main) 0%, var(--gold-dark) 100%);
+    color: #0b0f14 !important;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Theme Switcher Toggle Button */
+.theme-toggle {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-gold);
+    color: var(--gold-main);
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.05);
+}
+
+/* 7. Hero Section */
+.hero {
+    background: linear-gradient(135deg, rgba(11, 15, 20, 0.85) 30%, rgba(23, 42, 58, 0.75) 100%), 
+                url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    text-align: center;
+    border-bottom: 1px solid var(--border-gold);
+    padding: 60px 0;
+}
+
+.hero-content h1 {
+    font-size: clamp(30px, 5vw, 52px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, #ffffff 40%, var(--gold-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+    font-size: clamp(16px, 2.5vw, 20px);
+    max-width: 750px;
+    margin: 0 auto 35px;
+    color: #e0e6ed;
+    font-weight: 400;
+}
+
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-main) 50%, var(--gold-dark) 100%);
+    color: #0b0f14;
+    padding: 16px 36px;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.25);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.45);
+}
+
+/* 8. Service Cards */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--bg-card);
+    padding: 40px 30px;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid var(--border-gold);
+    transition: border-color 0.3s, transform 0.3s, background-color 0.3s;
+}
+
+.service-card:hover {
+    border-color: var(--border-card-hover);
+    transform: translateY(-5px);
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    color: var(--gold-light);
+    font-size: 20px;
+}
+
+.service-card li {
+    margin-bottom: 10px;
+    color: var(--text-muted);
+}
+
+/* 9. Booking Form & Inputs */
+.form-container {
+    background: var(--bg-card);
+    padding: clamp(25px, 5vw, 50px) clamp(20px, 4vw, 40px);
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-gold);
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    transition: background-color 0.3s ease;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--input-text);
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: var(--gold-main);
+    outline: none;
+}
+
+/* 10. Footer */
+footer {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    padding: 60px 0 calc(30px + env(safe-area-inset-bottom));
+    text-align: center;
+    border-top: 1px solid var(--border-gold);
+    transition: background-color 0.3s ease;
+}
+
+footer a {
+    color: var(--gold-main);
+    text-decoration: none;
+}
+
+/* 11. Media Queries */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
