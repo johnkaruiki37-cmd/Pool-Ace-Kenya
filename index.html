@@ -19,9 +19,14 @@
                 <a href="#coverage">Coverage</a>
                 <a href="#gallery">Gallery</a>
                 <a href="#pricing">Pricing</a>
-                <a href="#estimator">Estimator</a>
                 <a href="#support">Support</a>
                 <a href="#book" class="nav-btn">Book Now</a>
+                <!-- Header WhatsApp Link -->
+            <a href="https://wa.me/254768252406" target="_blank" class="nav-whatsapp" aria-label="Chat on WhatsApp">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.15c-1.49 0-2.95-.4-4.23-1.16l-.3-.18-3.13.82.83-3.05-.2-.32a8.17 8.17 0 0 1-1.25-4.35c0-4.52 3.68-8.2 8.2-8.2 2.19 0 4.25.85 5.8 2.4 1.55 1.55 2.4 3.61 2.4 5.8 0 4.52-3.68 8.2-8.2 8.2z"/></svg>
+                <span>WhatsApp</span>
+            </a>
+
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">🌙</button>
             </nav>
         </div>
@@ -273,59 +278,7 @@
         <ul class="features-list">
             <li><span class="check">✔</span> Flexible daily or weekly scheduling</li>
             <li><span class="check">✔</span> Serving Nairobi, Kiambu, Machakos (Kitengela) & Kajiado</li>
-            <li><span class="check">✔</span> Transparent, negotiable quotations</li>
-            <li><span class="check">✔</span> More than cleaning — tutoring & guided swim sessions available</li>
-            <li><span class="check">✔</span> Founded on trust, professionalism, and genuine care for your water space</li>
-        </ul>
-    </section>
-<!-- Value Estimator Section -->
-    <section id="estimator" class="estimator-section section-padding bg-light">
-        <div class="container">
-            <div class="section-header">
-                <h2>Instant Service Estimator</h2>
-                <div class="line"></div>
-            </div>
-            <p class="center-text">Select your pool specifications below to generate an estimated price quote instantly.</p>
-
-            <div class="estimator-box">
-                <div class="estimator-grid">
-                    <div class="form-group">
-                        <label for="estPoolSize">Approximate Pool Size</label>
-                        <select id="estPoolSize" onchange="calculateEstimate()">
-                            <option value="8000">Small (Up to 8m / Compact)</option>
-                            <option value="12000" selected>Medium (Standard Home Pool, ~12m)</option>
-                            <option value="18000">Large (Commercial / Estate Facility)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="estFrequency">Service Frequency</label>
-                        <select id="estFrequency" onchange="calculateEstimate()">
-                            <option value="1">Weekly Plan (4 Visits / Month)</option>
-                            <option value="2.5">Bi-Weekly Plan (8 Visits / Month)</option>
-                            <option value="5">Daily / High-Frequency Plan</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="estLocation">Location Zone</label>
-                        <select id="estLocation" onchange="calculateEstimate()">
-                            <option value="0">Nairobi Metro</option>
-                            <option value="1000">Kiambu</option>
-                            <option value="1500">Machakos / Kitengela</option>
-                            <option value="1500">Kajiado</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="estimate-result">
-                    <span class="result-label">Estimated Monthly Starting Investment:</span>
-                    <div class="result-amount" id="estimatedPrice">KES 12,000 / mo</div>
-                    <p class="disclaimer">*Estimates are negotiable and finalized after inspecting pool conditions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <li><span class="check">✔</span> Transparent, 
     <!-- 6. How to Book Section -->
     <section id="book" class="booking-section section-padding bg-light">
         <div class="form-container">
@@ -370,6 +323,46 @@
             </form>
         </div>
     </section>
+    <!-- Frequently Asked Questions Section -->
+<section id="faq" class="section-padding bg-panel">
+    <div class="container">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <div class="line"></div>
+            <p>Find answers to common questions regarding pool maintenance, cleaning schedules, and water treatments.</p>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">How often should my swimming pool be serviced? <span>+</span></button>
+                <div class="faq-answer">
+                    <p>We recommend routine weekly or bi-weekly maintenance depending on usage and surrounding foliage. Regular servicing keeps chemical levels balanced and prevents algae growth.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">How long does a Green-to-Clean pool restoration take? <span>+</span></button>
+                <div class="faq-answer">
+                    <p>Most green pool treatments take between 24 to 48 hours to fully clear, depending on the severity of the algae infestation and the state of the filtration system.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">What chemical testing do you perform during maintenance? <span>+</span></button>
+                <div class="faq-answer">
+                    <p>We perform full water parameter checks, including Free & Total Chlorine, pH levels, Total Alkalinity, Calcium Hardness, and Cyanuric Acid balance.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Do you offer emergency or one-off cleaning services? <span>+</span></button>
+                <div class="faq-answer">
+                    <p>Yes, we provide one-time deep cleaning, event preparations, and emergency chemical corrections alongside our regular contract packages.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- Support Center Section -->
     <section id="support" class="support-section section-padding">
         <div class="container">
@@ -395,13 +388,35 @@
             </div>
         </div>
     </section>
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/254768252406?text=Hello%20Pool%20Ace,%20I%20would%20like%20to%20inquire%20about%20your%20services." 
-       class="whatsapp-float" 
-       target="_blank" 
-       title="Chat with Pool Ace on WhatsApp">
-        <i class="fa-brands fa-whatsapp whatsapp-icon"></i>
-    </a>
+    <!-- Floating Chatbot Widget -->
+<div class="chatbot-container">
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open Chatbot">
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+    </button>
+    
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <h4>Pool Ace AI Assistant</h4>
+            <button class="chatbot-close" id="chatbotClose">&times;</button>
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+            <div class="chat-message bot">
+                Hello! 👋 I am Pool Ace AI. Ask me anything about pool cleaning, chemical balancing, pricing, or bookings!
+            </div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" id="chatInput" placeholder="Type a message..." />
+            <button id="chatSend">Send</button>
+        </div>
+        <button id="emailChatBtn" class="email-chat-btn">End & Email Transcript</button>
+    </div>
+</div>
+
+<!-- Include EmailJS SDK for browser-based email sending -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+
+
     <!-- Email Confirmation Notification Popup -->
     <div id="notificationToast" class="notification-toast">
         <div class="toast-content">
@@ -425,8 +440,9 @@
         </div>
     </footer>
 
-    <!-- Email Builder Script -->
+    
     <script>
+         <!-- Email Builder Script -->
   const themeToggleBtn = document.getElementById('themeToggle');
   const currentTheme = localStorage.getItem('theme') || 
     (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
@@ -480,17 +496,9 @@
 
             window.location.href = `mailto:${businessEmail}?subject=${subject}&body=${body}`;
         }
-        <!-- JavaScript logic -->
+        
     
-        // 1. Calculator Logic
-        function calculateEstimate() {
-            const sizeBase = parseFloat(document.getElementById('estPoolSize').value);
-            const freqMultiplier = parseFloat(document.getElementById('estFrequency').value);
-            const locationExtra = parseFloat(document.getElementById('estLocation').value);
-
-            const total = (sizeBase * freqMultiplier) + locationExtra;
-            document.getElementById('estimatedPrice').innerText = `KES ${total.toLocaleString()} / mo`;
-        }
+        
 // Toast Helper
         function showToast(title, message) {
             const toast = document.getElementById('notificationToast');
@@ -502,6 +510,123 @@
                 toast.classList.remove('show');
             }, 4500);
         }
+       // Chatbot Toggle Logic
+const toggleBtn = document.getElementById('chatbotToggle');
+const chatWindow = document.getElementById('chatbotWindow');
+const closeBtn = document.getElementById('chatbotClose');
+
+toggleBtn.addEventListener('click', () => chatWindow.classList.toggle('active'));
+closeBtn.addEventListener('click', () => chatWindow.classList.remove('active'));
+
+// FAQ Accordion Logic
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        item.classList.toggle('active');
+        const icon = btn.querySelector('span');
+        icon.textContent = item.classList.contains('active') ? '−' : '+';
+    });
+}); 
+// Initialize EmailJS (Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS key)
+(function() {
+    emailjs.init("YOUR_PUBLIC_KEY");
+})();
+
+// DOM Elements
+const chatbotToggle = document.getElementById('chatbotToggle');
+const chatbotWindow = document.getElementById('chatbotWindow');
+const chatbotClose = document.getElementById('chatbotClose');
+const chatInput = document.getElementById('chatInput');
+const chatSend = document.getElementById('chatSend');
+const chatbotBody = document.getElementById('chatbotBody');
+const emailChatBtn = document.getElementById('emailChatBtn');
+
+let chatHistory = [
+    { sender: "Bot", message: "Hello! 👋 I am Pool Ace AI. Ask me anything about pool cleaning, chemical balancing, pricing, or bookings!" }
+];
+
+// Toggle Chat Window
+chatbotToggle.addEventListener('click', () => chatbotWindow.classList.toggle('active'));
+chatbotClose.addEventListener('click', () => chatbotWindow.classList.remove('active'));
+
+// AI Knowledge Base & Automated Answers
+function getAIResponse(userQuery) {
+    const query = userQuery.toLowerCase();
+
+    if (query.includes('price') || query.includes('cost') || query.includes('rate') || query.includes('how much')) {
+        return "Our residential pool maintenance packages start from Ksh 3,500 per visit or Ksh 12,000 monthly for contract servicing. Would you like a detailed quote?";
+    } else if (query.includes('green') || query.includes('algae') || query.includes('dirty') || query.includes('restoration')) {
+        return "Our Green-to-Clean service uses chemical shock treatment, flocculants, and heavy extraction to clarify green pools within 24–48 hours.";
+    } else if (query.includes('location') || query.includes('where') || query.includes('nairobi') || query.includes('kenya')) {
+        return "We serve clients across Nairobi (Karen, Runda, Kilimani, Lavington, Gigiri), Kiambu, Thika, Machakos, and surrounding regions in Kenya.";
+    } else if (query.includes('book') || query.includes('schedule') || query.includes('appointment')) {
+        return "You can book directly through our website booking form, or WhatsApp us using the icon in the navigation bar to schedule an emergency service!";
+    } else if (query.includes('chemical') || query.includes('ph') || query.includes('chlorine') || query.includes('acid')) {
+        return "We test and balance Free Chlorine, pH levels, Total Alkalinity, Cyanuric Acid, and Calcium Hardness on every visit.";
+    } else {
+        return "Thank you for reaching out! A Pool Ace technician can inspect your pool and provide custom advice. Feel free to leave your contact info or click 'End & Email Transcript'!";
+    }
+}
+
+// Render Messages in Chat UI
+function appendMessage(sender, text) {
+    const msgDiv = document.createElement('div');
+    msgDiv.classList.add('chat-message', sender === 'User' ? 'user' : 'bot');
+    msgDiv.textContent = text;
+    chatbotBody.appendChild(msgDiv);
+    chatbotBody.scrollTop = chatbotBody.scrollHeight;
+
+    // Record to history array
+    chatHistory.push({ sender, message: text });
+}
+
+// Handle Sending Message
+function sendMessage() {
+    const text = chatInput.value.trim();
+    if (!text) return;
+
+    appendMessage('User', text);
+    chatInput.value = '';
+
+    // Simulate AI thinking delay
+    setTimeout(() => {
+        const reply = getAIResponse(text);
+        appendMessage('Bot', reply);
+    }, 600);
+}
+
+chatSend.addEventListener('click', sendMessage);
+chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+});
+
+// Send Chat Transcript via Email
+emailChatBtn.addEventListener('click', () => {
+    const userEmail = prompt("Please enter your email to receive a copy of this transcript (a copy will also be sent to Pool Ace Admin):");
+    
+    if (!userEmail) return;
+
+    // Build plain text transcript
+    let transcript = "--- Pool Ace Chatbot Inquiry Transcript ---\n\n";
+    chatHistory.forEach(item => {
+        transcript += `[${item.sender}]: ${item.message}\n`;
+    });
+
+    // EmailJS Parameters
+    const templateParams = {
+        user_email: userEmail,
+        admin_email: "johnkaruiki37@gmail.com", // Destination email
+        chat_transcript: transcript
+    };
+
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(() => {
+            alert('Transcript successfully sent to your email!');
+        }, (error) => {
+            console.error('Email failed...', error);
+            alert('Failed to send email transcript. Please check EmailJS configuration.');
+        });
+});
     </script>
 
 </body>
