@@ -510,123 +510,132 @@
                 toast.classList.remove('show');
             }, 4500);
         }
-       // Chatbot Toggle Logic
-const toggleBtn = document.getElementById('chatbotToggle');
-const chatWindow = document.getElementById('chatbotWindow');
-const closeBtn = document.getElementById('chatbotClose');
+     <!-- EmailJS Library (Optional for direct API sending) -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-toggleBtn.addEventListener('click', () => chatWindow.classList.toggle('active'));
-closeBtn.addEventListener('click', () => chatWindow.classList.remove('active'));
-
-// FAQ Accordion Logic
-document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const item = btn.parentElement;
-        item.classList.toggle('active');
-        const icon = btn.querySelector('span');
-        icon.textContent = item.classList.contains('active') ? '−' : '+';
-    });
-}); 
-// Initialize EmailJS (Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS key)
-(function() {
-    emailjs.init("YOUR_PUBLIC_KEY");
-})();
-
-// DOM Elements
-const chatbotToggle = document.getElementById('chatbotToggle');
-const chatbotWindow = document.getElementById('chatbotWindow');
-const chatbotClose = document.getElementById('chatbotClose');
-const chatInput = document.getElementById('chatInput');
-const chatSend = document.getElementById('chatSend');
-const chatbotBody = document.getElementById('chatbotBody');
-const emailChatBtn = document.getElementById('emailChatBtn');
-
-let chatHistory = [
-    { sender: "Bot", message: "Hello! 👋 I am Pool Ace AI. Ask me anything about pool cleaning, chemical balancing, pricing, or bookings!" }
-];
-
-// Toggle Chat Window
-chatbotToggle.addEventListener('click', () => chatbotWindow.classList.toggle('active'));
-chatbotClose.addEventListener('click', () => chatbotWindow.classList.remove('active'));
-
-// AI Knowledge Base & Automated Answers
-function getAIResponse(userQuery) {
-    const query = userQuery.toLowerCase();
-
-    if (query.includes('price') || query.includes('cost') || query.includes('rate') || query.includes('how much')) {
-        return "Our residential pool maintenance packages start from Ksh 3,500 per visit or Ksh 12,000 monthly for contract servicing. Would you like a detailed quote?";
-    } else if (query.includes('green') || query.includes('algae') || query.includes('dirty') || query.includes('restoration')) {
-        return "Our Green-to-Clean service uses chemical shock treatment, flocculants, and heavy extraction to clarify green pools within 24–48 hours.";
-    } else if (query.includes('location') || query.includes('where') || query.includes('nairobi') || query.includes('kenya')) {
-        return "We serve clients across Nairobi (Karen, Runda, Kilimani, Lavington, Gigiri), Kiambu, Thika, Machakos, and surrounding regions in Kenya.";
-    } else if (query.includes('book') || query.includes('schedule') || query.includes('appointment')) {
-        return "You can book directly through our website booking form, or WhatsApp us using the icon in the navigation bar to schedule an emergency service!";
-    } else if (query.includes('chemical') || query.includes('ph') || query.includes('chlorine') || query.includes('acid')) {
-        return "We test and balance Free Chlorine, pH levels, Total Alkalinity, Cyanuric Acid, and Calcium Hardness on every visit.";
-    } else {
-        return "Thank you for reaching out! A Pool Ace technician can inspect your pool and provide custom advice. Feel free to leave your contact info or click 'End & Email Transcript'!";
-    }
-}
-
-// Render Messages in Chat UI
-function appendMessage(sender, text) {
-    const msgDiv = document.createElement('div');
-    msgDiv.classList.add('chat-message', sender === 'User' ? 'user' : 'bot');
-    msgDiv.textContent = text;
-    chatbotBody.appendChild(msgDiv);
-    chatbotBody.scrollTop = chatbotBody.scrollHeight;
-
-    // Record to history array
-    chatHistory.push({ sender, message: text });
-}
-
-// Handle Sending Message
-function sendMessage() {
-    const text = chatInput.value.trim();
-    if (!text) return;
-
-    appendMessage('User', text);
-    chatInput.value = '';
-
-    // Simulate AI thinking delay
-    setTimeout(() => {
-        const reply = getAIResponse(text);
-        appendMessage('Bot', reply);
-    }, 600);
-}
-
-chatSend.addEventListener('click', sendMessage);
-chatInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') sendMessage();
-});
-
-// Send Chat Transcript via Email
-emailChatBtn.addEventListener('click', () => {
-    const userEmail = prompt("Please enter your email to receive a copy of this transcript (a copy will also be sent to Pool Ace Admin):");
-    
-    if (!userEmail) return;
-
-    // Build plain text transcript
-    let transcript = "--- Pool Ace Chatbot Inquiry Transcript ---\n\n";
-    chatHistory.forEach(item => {
-        transcript += `[${item.sender}]: ${item.message}\n`;
-    });
-
-    // EmailJS Parameters
-    const templateParams = {
-        user_email: userEmail,
-        admin_email: "johnkaruiki37@gmail.com", // Destination email
-        chat_transcript: transcript
-    };
-
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-        .then(() => {
-            alert('Transcript successfully sent to your email!');
-        }, (error) => {
-            console.error('Email failed...', error);
-            alert('Failed to send email transcript. Please check EmailJS configuration.');
+<!-- Embedded Application Script -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // =========================================================================
+    // 1. FAQ Accordion Control Logic
+    // =========================================================================
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.parentElement;
+            item.classList.toggle('active');
+            const icon = btn.querySelector('span');
+            if (icon) {
+                icon.textContent = item.classList.contains('active') ? '−' : '+';
+            }
         });
+    });
+
+    // =========================================================================
+    // 2. Chatbot Interface & Interactive AI Engine
+    // =========================================================================
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotWindow = document.getElementById('chatbotWindow');
+    const chatbotClose = document.getElementById('chatbotClose');
+    const chatInput = document.getElementById('chatInput');
+    const chatSend = document.getElementById('chatSend');
+    const chatbotBody = document.getElementById('chatbotBody');
+    const emailChatBtn = document.getElementById('emailChatBtn');
+
+    if (!chatbotToggle || !chatbotWindow) return;
+
+    // Stores session history for email exporting
+    let chatHistory = [
+        { sender: "Bot", message: "Hello! 👋 I am Pool Ace AI. Ask me anything about pool cleaning, chemical balancing, pricing, or bookings!" }
+    ];
+
+    // Open / Close Chatbot Drawer
+    chatbotToggle.addEventListener('click', () => {
+        chatbotWindow.classList.toggle('active');
+        if (chatbotWindow.classList.contains('active')) {
+            chatInput.focus();
+        }
+    });
+
+    if (chatbotClose) {
+        chatbotClose.addEventListener('click', () => chatbotWindow.classList.remove('active'));
+    }
+
+    // AI Knowledge Base Engine
+    function getAIResponse(userQuery) {
+        const query = userQuery.toLowerCase();
+
+        if (query.includes('price') || query.includes('cost') || query.includes('rate') || query.includes('how much') || query.includes('ksh')) {
+            return "Our residential pool maintenance packages start from Ksh 3,500 per visit or Ksh 12,000 monthly for contract servicing. Would you like a custom quote for your pool size?";
+        } else if (query.includes('green') || query.includes('algae') || query.includes('dirty') || query.includes('restoration')) {
+            return "Our Green-to-Clean service uses heavy chlorine shock treatment, flocculants, and bottom sludge extraction to restore crystal clarity in 24–48 hours.";
+        } else if (query.includes('location') || query.includes('where') || query.includes('nairobi') || query.includes('kenya')) {
+            return "We service clients across Nairobi (Karen, Runda, Kilimani, Lavington, Gigiri), Kiambu Road, Thika, Machakos, and surrounding regions in Kenya.";
+        } else if (query.includes('book') || query.includes('schedule') || query.includes('appointment')) {
+            return "You can book directly using our website contact form or click the WhatsApp link in our menu bar to schedule an emergency inspection!";
+        } else if (query.includes('chemical') || query.includes('ph') || query.includes('chlorine') || query.includes('acid') || query.includes('filter')) {
+            return "We test and balance Free Chlorine, pH levels, Total Alkalinity, Cyanuric Acid, and perform filter sand backwashing on every scheduled visit.";
+        } else {
+            return "Thank you for reaching out! A Pool Ace technician can evaluate your pool requirements directly. Feel free to message us on WhatsApp above or click 'End & Email Transcript'!";
+        }
+    }
+
+    // Append Chat Bubble to UI
+    function appendMessage(sender, text) {
+        const msgDiv = document.createElement('div');
+        msgDiv.classList.add('chat-message', sender === 'User' ? 'user' : 'bot');
+        msgDiv.textContent = text;
+        chatbotBody.appendChild(msgDiv);
+        chatbotBody.scrollTop = chatbotBody.scrollHeight;
+
+        chatHistory.push({ sender, message: text });
+    }
+
+    // Dispatch User Message
+    function handleSend() {
+        const text = chatInput.value.trim();
+        if (!text) return;
+
+        appendMessage('User', text);
+        chatInput.value = '';
+
+        // Simulated processing response
+        setTimeout(() => {
+            const reply = getAIResponse(text);
+            appendMessage('Bot', reply);
+        }, 400);
+    }
+
+    if (chatSend) {
+        chatSend.addEventListener('click', handleSend);
+    }
+
+    if (chatInput) {
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSend();
+        });
+    }
+
+    // =========================================================================
+    // 3. Send Conversation Transcript to Email
+    // =========================================================================
+    if (emailChatBtn) {
+        emailChatBtn.addEventListener('click', () => {
+            let transcript = "--- Pool Ace Kenya Chat Transcript ---\n\n";
+            chatHistory.forEach(item => {
+                transcript += `[${item.sender}]: ${item.message}\n`;
+            });
+
+            // Opens default mail application populated with conversation history
+            const adminEmail = "johnkaruiki37@gmail.com";
+            const subject = encodeURIComponent("Pool Ace Chat Inquiry Log");
+            const body = encodeURIComponent(transcript);
+
+            window.location.href = `mailto:${adminEmail}?subject=${subject}&body=${body}`;
+        });
+    }
 });
+</script>
     </script>
 
 </body>
