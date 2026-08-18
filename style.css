@@ -1492,3 +1492,31 @@ footer a {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.site-logo {
+    height: 42px;
+    max-height: 42px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    border-radius: 4px;
+    border: 1px solid var(--border-gold);
+}
+
+.logo-text {
+    font-size: clamp(18px, 3vw, 22px);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.logo-text span {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-main) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
