@@ -1458,3 +1458,37 @@ footer a {
     background: var(--border-gold);
     color: #ffffff;
 }
+/* Logo Styling */
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.site-logo {
+    height: 48px;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    border-radius: 6px;
+    border: 1px solid var(--border-gold);
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover .site-logo {
+    transform: scale(1.04);
+}
+
+.logo-text {
+    font-size: clamp(20px, 3.5vw, 24px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-primary);
+}
+
+.logo-text span {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-main) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
