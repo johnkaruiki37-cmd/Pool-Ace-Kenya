@@ -1520,3 +1520,24 @@ footer a {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+/* Default Dark Theme Variables */
+:root {
+    --bg-dark: #0b0f14;
+    --bg-main: #11161d;
+    --bg-panel: #171f2a;
+    --bg-card: #0b0f14;
+    --text-primary: #e0e6ed;
+    --text-muted: #a0aec0;
+    --border-gold: rgba(212, 175, 55, 0.18);
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] {
+    --bg-dark: #ffffff;
+    --bg-main: #f0f3f6;
+    --bg-panel: #e2e8f0;
+    --bg-card: #ffffff;
+    --text-primary: #1a202c;
+    --text-muted: #4a5568;
+    --border-gold: rgba(184, 134, 11, 0.25);
+}
